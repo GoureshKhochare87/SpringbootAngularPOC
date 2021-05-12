@@ -1,0 +1,86 @@
+<div class="col-md-6 offset-md-3">
+
+  <h3>Create Employee</h3>
+  <form [formGroup]="createEmployee" (ngSubmit)="onSubmit()"novalidate>
+  <!--<form (submit)="onSubmit()"-->
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" id="firstName"
+             [(ngModel)]="employee.firstName" name="firstName" required [class.invalid]="isInvalidAndDirty('firstName')">
+      <span style="color:red" class="error-message" *ngIf="hasError('firstName','required')">
+        First name is required !!!
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('firstName','minlength')">
+        First name must be at least 1 characters long
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('firstName','maxlength')">
+        First name cannot be longer than 30 characters
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" id="lastName"
+             [(ngModel)]="employee.lastName" name="lastName" required [class.invalid]="isInvalidAndDirty('lastName')">
+      <span style="color:red" class="error-message" *ngIf="hasError('lastName','required')">
+        Last name is required !!!
+      </span>
+      <span style="color:red"class="error-message" *ngIf="hasError('lastName','minlength')">
+        Last name must be at least 2 characters long
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('lastName','maxlength')">
+        Last name cannot be longer than 30 characters
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Email Id</label>
+      <input type="text" formControlName="emailId" class="form-control" id="emailId"
+             [(ngModel)]="employee.emailId" name="emailId" required [class.invalid]="isInvalidAndDirty('emailId')">
+      <span style="color:red" class="error-message" *ngIf="hasError('emailId','required')">
+        Email is required !!!
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('emailId','pattern')">
+        Enter Valid email !!!
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Mobile No</label>
+      <input type="number" formControlName="mobileNo" class="form-control" id="mobileNo"
+             [(ngModel)]="employee.mobileNo" name="mobileNo" required [class.invalid]="isInvalidAndDirty('mobileNo')">
+      <span style="color:red" class="error-message" *ngIf="hasError('mobileNo','required')">
+        Mobile Number is required !!!
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('mobileNo','pattern')">
+        Enter Valid Mobile Number !!!
+      </span>
+    </div>
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" formControlName="city" class="form-control" id="city"
+             [(ngModel)]="employee.city" name="city" required [class.invalid]="isInvalidAndDirty('city')">
+      <span style="color:red" class="error-message" *ngIf="hasError('city','required')">
+        City is required !!!
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('city','pattern')">
+        Enter Valid City !!!
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label>Country</label>
+      <input type="text" formControlName="country" class="form-control" id="country"
+             [(ngModel)]="employee.country" name="country" required [class.invalid]="isInvalidAndDirty('country')">
+      <span style="color:red" class="error-message" *ngIf="hasError('country','required')">
+        Country is required !!!
+      </span>
+      <span style="color:red" class="error-message" *ngIf="hasError('country','pattern')">
+        Enter Valid Country !!!
+      </span>
+    </div>
+  <!--<input type="submit">-->
+  <button class="btn btn-success" onclick = "myfunction()">Submit</button>
+
+  </form>
+</div>

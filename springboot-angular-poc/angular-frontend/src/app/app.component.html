@@ -1,0 +1,37 @@
+<!--<app-menu></app-menu>-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="employees" routerLinkActive="active" class="nav-link">Employee List</a>
+      </li>
+      <li class="nav-item">
+        <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="create-employee" routerLinkActive="active" class="nav-link">Add Employee</a>
+      </li>
+
+      <li class="nav-item">
+        <a *ngIf="authenticationService.isUserLoggedIn()" routerLink="get-employee-by-id" routerLinkActive="active" class="nav-link">Get Employee by Id</a>
+      </li>
+
+    </ul>
+
+    </div>
+</nav>
+
+
+<h1 class="text-center">{{title}}</h1>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <span>All rights reserved 2021 @Gouresh</span>
+  </div>
+</footer>

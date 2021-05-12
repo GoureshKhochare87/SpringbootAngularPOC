@@ -1,0 +1,47 @@
+<header>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+      <!-- <li>
+          <a *ngIf="!isLoggedIn" class="nav-link" href="/login">Login</a>
+      </li> -->
+
+      <li><b>
+        <a *ngIf="isLoggedIn" class="nav-link" href="/logout" (click)=handleLogout()>Logout</a></b>
+      </li>
+    </ul>
+  </nav>
+</header>
+<h2>Employee List</h2>
+<div class="table-responsive">
+
+  <table class="table table-striped">
+    <thead><!-- class="thead-dark"-->
+
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Id</th>
+        <th>Mobile No</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td>{{employee.emailId}}</td>
+        <td>{{employee.mobileNo}}</td>
+        <td>{{employee.city}}</td>
+        <td>{{employee.country}}</td>
+        <td>
+          <button (click)="updateEmployee(employee.employeeId)" class="btn btn-info">Update</button>
+          <button (click)="deleteEmployee(employee.employeeId)" class="btn btn-danger" style="margin-left:10px">Delete</button>
+          <button (click)="employeeDetails(employee.employeeId)" class="btn btn-info" style="margin-left:10px">View</button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+  </div>
